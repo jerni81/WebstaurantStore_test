@@ -5,10 +5,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class first_test {
+	String os = System.getProperty("os.name").toLowerCase();
 	WebDriver driver;
 
-	public void launchBrowser() {
-		System.setProperty("webdriver.chrome.driver",  "/Users/aj/Downloads/chromedriver");
+	public void runTest() {
+		if (os.contains("mac")) {
+			System.setProperty("webdriver.chrome.driver",  "/Users/aj/Downloads/chromedriver");
+		} else {
+			System.setProperty("webdriver.chrome.driver",  "/Users/aj/Downloads/chromedriver.exe");
+
+		}
 		driver = new ChromeDriver();
 		driver.get("https://www.webstaurantstore.com/");
 		driver.findElement(By.name("searchval")).sendKeys("stainless work table");
@@ -18,7 +24,7 @@ public class first_test {
 
 	public static void main(String[] args) {
 		first_test obj = new first_test();
-		obj.launchBrowser();
+		obj.runTest();
 
 	}
 
