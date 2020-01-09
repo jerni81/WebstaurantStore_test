@@ -1,7 +1,6 @@
 package code_test;
 
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -43,15 +42,11 @@ public class first_test {
 		// Select last element returned add to cart
 		int length = (driver.findElements(By.className("gtm-product")).toArray().length);
 		String theID = "productBox" + length;
-//		System.out.println(theID);
 		WebElement lastItem = driver.findElement(By.id(theID));
-		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
 		lastItem.findElement(By.xpath("//div[@id='"+theID+"']//div[@class='add-to-cart']//form")).submit();
-//		System.out.println(theID);
 		
 		// Empty cart
 		driver.findElement(By.className("deleteCartItemButton")).click();
-		
 		
 	}
 	
