@@ -34,20 +34,20 @@ public class first_test {
 		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
 
 		// Confirm all returned contain the word table 
-		System.out.println(driver.findElements(By.className("gtm-product")).contains("Table"));
+		driver.findElement(By.id("search_within")).sendKeys("Table");
+		driver.findElement(By.id("searchWithinForm")).submit();
 		
 		// Select last element returned add to cart
-		int length = (driver.findElements(By.className("gtm-product")).toArray().length);
-		String theID = "productBox" + length;
-		System.out.println(theID);
-		WebElement lastItem = (driver.findElement(By.id(theID)));
-		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
-		lastItem.findElement(By.xpath("//div[@class='add-to-cart']//form")).submit();
-		System.out.println(theID);
-		// lastItem.findElement(By.className("add-to-cart")).findElement(By.className("product-form")).submit();
+//		int length = (driver.findElements(By.className("gtm-product")).toArray().length);
+//		String theID = "productBox" + length;
+//		System.out.println(theID);
+//		WebElement lastItem = driver.findElement(By.id(theID));
+//		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
+//		lastItem.findElement(By.xpath("//div[@id='"+theID+"']//div[@class='add-to-cart']//form")).submit();
+//		System.out.println(theID);
 		
 		// Empty cart
-		driver.findElement(By.className("deleteCartItemButton")).click();
+//		driver.findElement(By.className("deleteCartItemButton")).click();
 		
 		
 	}
