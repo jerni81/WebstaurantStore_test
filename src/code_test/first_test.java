@@ -19,9 +19,9 @@ public class first_test {
 	public void runTest() {
 		// Determines if OS is Mac or Windows and sets property to correct location
 		if (os.contains("mac")) {
-			System.setProperty("webdriver.chrome.driver",  "/Users/aj/Downloads/chromedriver");
+			System.setProperty("webdriver.chrome.driver",  System.getProperty("user.dir")+"/chromedriver");
 		} else {
-			System.setProperty("webdriver.chrome.driver",  "/Users/aj/Downloads/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver",  System.getProperty("user.dir")+"\\chromedriver.exe");
 		}
 		
 		// Launch browser and navigate to page
