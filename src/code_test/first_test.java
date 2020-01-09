@@ -24,6 +24,7 @@ public class first_test {
 		} else {
 			System.setProperty("webdriver.chrome.driver",  "/Users/aj/Downloads/chromedriver.exe");
 		}
+		
 		// Launch browser and navigate to page
 		driver = new ChromeDriver();
 		driver.get("https://www.webstaurantstore.com/");
@@ -31,6 +32,8 @@ public class first_test {
 		// Input search text and perform search
 		driver.findElement(By.name("searchval")).sendKeys("stainless work table");
 		driver.findElement(By.className("banner-search-btn")).submit();
+		
+		// Timeout to allow all results to load
 		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
 
 		// Confirm all returned contain the word table 
@@ -38,16 +41,16 @@ public class first_test {
 		driver.findElement(By.id("searchWithinForm")).submit();
 		
 		// Select last element returned add to cart
-//		int length = (driver.findElements(By.className("gtm-product")).toArray().length);
-//		String theID = "productBox" + length;
+		int length = (driver.findElements(By.className("gtm-product")).toArray().length);
+		String theID = "productBox" + length;
 //		System.out.println(theID);
-//		WebElement lastItem = driver.findElement(By.id(theID));
-//		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
-//		lastItem.findElement(By.xpath("//div[@id='"+theID+"']//div[@class='add-to-cart']//form")).submit();
+		WebElement lastItem = driver.findElement(By.id(theID));
+		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
+		lastItem.findElement(By.xpath("//div[@id='"+theID+"']//div[@class='add-to-cart']//form")).submit();
 //		System.out.println(theID);
 		
 		// Empty cart
-//		driver.findElement(By.className("deleteCartItemButton")).click();
+		driver.findElement(By.className("deleteCartItemButton")).click();
 		
 		
 	}
